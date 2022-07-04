@@ -1,24 +1,13 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import Routers from "./src/components/Routers";
+import { Provider } from "react-redux";
+import store from "./src/redux/store";
+import ToastConfig from "./src/components/ToastConfig";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>I am mobile developer!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <Routers />
+      <ToastConfig />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fbb",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    color: "#494",
-    fontSize: 20,
-  },
-});
